@@ -39,7 +39,16 @@ namespace TarGetAPI
 
 
 
+            services.AddDbContext<CartContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+            services.AddDbContext<CartDetailsContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+            services.AddDbContext<CategoryContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
             services.AddDbContext<CityContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+            services.AddDbContext<CustomerContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+            services.AddDbContext<DistrictContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+            services.AddDbContext<ProducersContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+            services.AddDbContext<ProductsContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+            services.AddDbContext<UserAccContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+            
 
 
             services.AddControllers();
