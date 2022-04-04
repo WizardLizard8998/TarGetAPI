@@ -39,6 +39,20 @@ namespace TarGetAPI
             });
 
 
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+
+                    });
+            });
+
+
 
             services.AddDbContext<CartContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
             services.AddDbContext<CartDetailsContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
@@ -66,11 +80,13 @@ namespace TarGetAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TarGetAPI v1"));
             }
 
-            app.UseHttpsRedirection();
+           // app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("AllowAll");
 
             app.UseEndpoints(endpoints =>
             {
