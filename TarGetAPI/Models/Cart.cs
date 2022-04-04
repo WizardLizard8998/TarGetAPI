@@ -5,8 +5,9 @@ namespace TarGetAPI.Models
 {
     public class Cart
     {
-        public int Id { get; set; } 
-        public string CtPaid{ get; set; }    
-        public string CtNote{ get; set; }    
+        [Key]
+        public int Ct_Id { get; set; } 
+        public string Ct_Paid{ get; set; }    
+        public string Ct_note{ get; set; }    
     }
 }

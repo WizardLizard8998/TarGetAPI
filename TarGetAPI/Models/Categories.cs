@@ -5,7 +5,8 @@ namespace TarGetAPI.Models
 {
     public class Categories
     {
-        public int CId { get; set; }
-        public string CNAme{ get; set; }
+        [Key]
+        public int C_Id { get; set; }
+        public string C_Name{ get; set; }
     }
 }

@@ -7,7 +7,7 @@ using TarGetAPI.Models;
 
 namespace TarGetAPI.Controllers
 {
-    [Route("TG/[controller]")]
+    [Route("TarGet/[controller]")]
     [ApiController]
     public class CityController : ControllerBase
     {
@@ -21,21 +21,21 @@ namespace TarGetAPI.Controllers
 
 
         [HttpGet]
-        public IEnumerable<City> Get()
+        public IEnumerable<City> GetCity()
         {
             return _cityContext.Cities;
         }
 
         [HttpGet]
         [Route("{Id}")]
-        public IEnumerable<City> Get(int Id)
+        public IEnumerable<City> GetCityById(int Id)
         {
             return (IEnumerable<City>)_cityContext.Cities.FirstOrDefault(c => c.CityId == Id);
         }
 
 
         [HttpPost]
-        public void Post([FromBody] City data)
+        public void PostCity([FromBody] City data)
         {
             if (data == null) { return; }
 
@@ -45,7 +45,7 @@ namespace TarGetAPI.Controllers
 
 
         [HttpPut("{Name}")]
-        public void Put(int Id, [FromBody] City city)
+        public void PutCity(int Id, [FromBody] City city)
         {
             var tempcity = _cityContext.Cities.FirstOrDefault(c => c.CityId == Id);
 
@@ -59,7 +59,7 @@ namespace TarGetAPI.Controllers
         }
 
         [HttpDelete("{Id}")]
-        public void Delete(int Id)
+        public void DeleteCity(int Id)
         {
             var tempcity = _cityContext.Cities.FirstOrDefault(c =>  c.CityId == Id);
         

@@ -10,7 +10,7 @@ namespace TarGetAPI.Contexts
 
         }
 
-        public DbSet<Cart>Carts { get; set; }   
+        public DbSet<Cart>Cart { get; set; }   
 
     }
 }
