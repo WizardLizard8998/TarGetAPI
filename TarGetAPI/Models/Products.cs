@@ -5,15 +5,16 @@ namespace TarGetAPI.Models
 {
     public class Products
     {
-        public int Id { get; set; }
-        public string PName { get; set; }
-        public string PImage{ get; set; }
-        public string Description { get; set; }
-        public float UnitPrice{ get; set; }
-        public float Discount{ get; set; }
-        public float TotalWeight{ get; set; }
-        public float UnitWeight{ get; set; }
-        public int ProducerId{ get; set; }
-        public int CategoryId{ get; set; }
+        [Key]
+        public int Pt_Id { get; set; }
+        public string Pt_Name { get; set; }
+        public string Pt_Image{ get; set; }
+        public string Pt_Description { get; set; }
+        public float Pt_UnitPrice{ get; set; }
+        public float Pt_Discount{ get; set; }
+        public float Pt_TotalWeight{ get; set; }
+        public float Pt_UnitWeight { get; set; }
+        public int P_Id{ get; set; }
+        public int C_Id{ get; set; }
     }
 }

@@ -62,7 +62,7 @@ namespace TarGetAPI
             services.AddDbContext<DistrictContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
             services.AddDbContext<ProducersContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
             services.AddDbContext<ProductsContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
-            services.AddDbContext<UserAccContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+            services.AddDbContext<UserAccountContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
             
 
 

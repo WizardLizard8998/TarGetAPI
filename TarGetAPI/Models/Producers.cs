@@ -5,15 +5,16 @@ namespace TarGetAPI.Models
 {
     public class Producers
     {
-        public int P_ID { get ; set; }  
+        [Key]
+        public int P_Id { get ; set; }  
         public string P_Name { get ; set; }  
         public byte P_Picture { get ; set; }  
-        public string Description{ get ; set; }  
-        public string Address{ get ; set; }  
+        public string P_Description{ get ; set; }  
+        public string P_Address{ get ; set; }  
         public int D_Id{ get ; set; }  
-        public string PostalCode{ get ; set; }  
-        public string Phone{ get ; set; }  
-        public string Email{ get ; set; }  
-        public int UAID{ get ; set; }  
+        public string P_PostalCode{ get ; set; }  
+        public string P_Phone{ get ; set; }  
+        public string P_Email{ get ; set; }  
+        public int P_UAID{ get ; set; }  
     }
 }

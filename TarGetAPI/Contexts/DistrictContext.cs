@@ -10,7 +10,7 @@ namespace TarGetAPI.Contexts
 
         }
 
-        public DbSet<District> Districts{ get; set; }
+        public DbSet<District> District{ get; set; }
 
     }
 }

@@ -5,9 +5,10 @@ namespace TarGetAPI.Models
 {
     public class District
     {
-        public int DId { get; set; } 
-        public string DName { get; set; } 
-        public int CId { get; set; }    
+        [Key]
+        public int D_Id { get; set; } 
+        public string D_Name { get; set; } 
+        public int CityId { get; set; }    
 
     }
 }
