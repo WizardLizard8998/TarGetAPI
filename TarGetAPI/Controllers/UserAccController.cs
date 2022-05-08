@@ -37,6 +37,17 @@ namespace TarGetAPI.Controllers
 
         }
 
+        [HttpGet("{Mail}/{Password}")]
+        public IActionResult GetUserAccByData(string Mail,string Password)
+        {
+            var tempUserAcc= _userAccContext.UserAccount.FirstOrDefault(ua => ua.UA_Email == Mail && ua.UA_Password == Password);
+
+            if( tempUserAcc == null    )  { return NotFound(); }
+
+            return Ok(tempUserAcc);
+
+
+        }
 
         [HttpPost]
         public IActionResult PostUserAcc([FromBody] UserAccount userAcc)
