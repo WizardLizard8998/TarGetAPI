@@ -12,5 +12,7 @@ namespace TarGetAPI.Contexts
 
         public DbSet<Producers> Producers{ get; set; }
 
+        public DbSet<UserAccount> UserAccount { get; set; }
+
     }
 }

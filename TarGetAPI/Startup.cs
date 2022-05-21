@@ -63,10 +63,20 @@ namespace TarGetAPI
             services.AddDbContext<ProducersContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
             services.AddDbContext<ProductsContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
             services.AddDbContext<UserAccountContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+            services.AddDbContext<ComplexContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("UsersConnStr")));
+
+
             
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new ByteArrayConverter());
+                
+
+            });
+            
+           // services.AddControllers();
 
 
-            services.AddControllers();
 
         }
 

@@ -26,9 +26,9 @@ namespace TarGetAPI.Controllers
 
         [HttpGet("{Id}")]
 
-       public IActionResult GetProductsById(int id)
+       public IActionResult GetProductsById(int Id)
         {
-                var tempProducts = _productsContext.Products.FirstOrDefault(p => p.Pt_Id == id);
+                var tempProducts = _productsContext.Products.FirstOrDefault(p => p.Pt_Id == Id);
 
             if (tempProducts == null) { return NotFound(); }
 
@@ -39,10 +39,26 @@ namespace TarGetAPI.Controllers
         [HttpPost]
         public IActionResult PostProducts([FromBody] Products products)
         {
-            if(products == null) { return BadRequest(); }
+           
+
+             _productsContext.Products.Add(products);
+             _productsContext.SaveChanges(true);
+
+            return Ok();
+
+        }
+
+
+
+
+        [HttpPost]
+        [Route("Image/")]
+        public IActionResult PostProductsforImage([FromBody] Products products)
+        {
+           
 
             _productsContext.Products.Add(products);
-             _productsContext.SaveChanges();
+            _productsContext.SaveChanges(true);
 
             return Ok();
 

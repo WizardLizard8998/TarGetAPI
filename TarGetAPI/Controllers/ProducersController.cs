@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TarGetAPI.Contexts;
 using TarGetAPI.Models;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace TarGetAPI.Controllers
 {
@@ -17,6 +17,11 @@ namespace TarGetAPI.Controllers
         private ProducersContext _producersContext;
 
         public ProducersController(ProducersContext producersContext) { _producersContext = producersContext; }
+
+
+     
+       
+
 
         [HttpGet]
 
@@ -37,6 +42,16 @@ namespace TarGetAPI.Controllers
 
         }
 
+        [HttpGet("/UserAcc/{UAID}")]
+        public IActionResult GetProducersByUAID(int UAID)
+        {
+            var tempProducers = _producersContext.Producers.FirstOrDefault(p => p.P_UAID == UAID);
+
+            if (tempProducers == null) { return NotFound(); }
+
+            return Ok(tempProducers);
+
+        }
 
         [HttpPost]
         public IActionResult PostProducers([FromBody] Producers producers)
@@ -49,6 +64,8 @@ namespace TarGetAPI.Controllers
             return Ok();
         }
 
+
+   
 
         [HttpPut("{Id}")]
         public IActionResult PutProducers([FromBody] Producers producers, int id)

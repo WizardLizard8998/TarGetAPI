@@ -6,6 +6,7 @@ using TarGetAPI.Contexts;
 
 
 
+
 namespace TarGetAPI.Controllers
 {
     [Route("TarGet/[controller]")]
@@ -15,10 +16,12 @@ namespace TarGetAPI.Controllers
     {
 
         private CustomerContext _customerContext;
-
+        
+      
 
         public CustomerController(CustomerContext customerContext) { _customerContext = customerContext; }
 
+       
 
         [HttpGet]
         public IEnumerable<Customers> GetCustomers()
@@ -38,6 +41,8 @@ namespace TarGetAPI.Controllers
 
         }
 
+
+    
 
         [HttpPost]
 
@@ -62,7 +67,7 @@ namespace TarGetAPI.Controllers
             
             var tempCustomer = _customerContext.Customers.FirstOrDefault(c =>c.C_Id == id); 
 
-             _customerContext.Entry<Customers>(customer).CurrentValues.SetValues(customer);
+             _customerContext.Entry<Customers>(tempCustomer).CurrentValues.SetValues(customer);
             _customerContext.SaveChanges();
 
             return Ok();

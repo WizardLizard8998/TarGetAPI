@@ -14,6 +14,6 @@ namespace TarGetAPI.Models
         public string C_PostalCode{ get; set; }
         public string C_Phone { get; set; }
         public string C_Email{ get; set; }
-        public string C_UAID{ get; set; }
+        public int C_UAID{ get; set; }
     }
 }

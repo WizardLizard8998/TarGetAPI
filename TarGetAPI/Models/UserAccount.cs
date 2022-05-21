@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
 
 namespace TarGetAPI.Models
 {
@@ -13,7 +14,7 @@ namespace TarGetAPI.Models
         public string UA_Password { get; set; }
         
         public string UA_Title { get; set; }
-        public string  UA_DateEntered{ get; set; }
+        public DateTime  UA_DateEntered{ get; set; }
 
     }
 }

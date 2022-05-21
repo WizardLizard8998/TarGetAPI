@@ -8,7 +8,7 @@ namespace TarGetAPI.Models
         [Key]
         public int P_Id { get ; set; }  
         public string P_Name { get ; set; }  
-        public byte P_Picture { get ; set; }  
+        public byte[] P_Picture { get ; set; }  
         public string P_Description{ get ; set; }  
         public string P_Address{ get ; set; }  
         public int D_Id{ get ; set; }  
