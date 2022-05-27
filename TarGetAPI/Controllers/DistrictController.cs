@@ -37,6 +37,18 @@ namespace TarGetAPI.Controllers
 
         }
 
+        [HttpGet("DistrictByCity/{CityId}")]
+        public IActionResult GetDistrictByCity(int CityId)
+        {
+            var tempDistrict = _districtContext.District.FirstOrDefault(d => d.CityId == CityId);
+
+            if (tempDistrict == null) { return NotFound(); }
+
+            return Ok(tempDistrict);
+
+        }
+
+
 
 
         [HttpPost]
