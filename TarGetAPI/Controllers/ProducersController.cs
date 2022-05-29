@@ -24,17 +24,17 @@ namespace TarGetAPI.Controllers
 
 
         [HttpGet]
-
         public IEnumerable<Producers> GetProducers()
         {
             return _producersContext.Producers;
 
         }
 
+
         [HttpGet("{Id}")]
-        public IActionResult GetProducersById(int id)
+        public IActionResult GetProducersById(int Id)
         {
-            var tempProducers = _producersContext.Producers.FirstOrDefault(p => p.P_Id == id);
+            var tempProducers = _producersContext.Producers.FirstOrDefault(p => p.P_Id == Id);
 
             if(tempProducers == null) { return NotFound(); }
 
@@ -73,7 +73,6 @@ namespace TarGetAPI.Controllers
             if(producers == null) { return BadRequest(); }
 
             var tempProducers = _producersContext.Producers.FirstOrDefault(p => p.P_Id == id);
-
 
             _producersContext.Entry<Producers>(producers).CurrentValues.SetValues(producers);
             _producersContext.SaveChanges(true);

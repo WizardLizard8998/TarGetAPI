@@ -27,9 +27,11 @@ namespace TarGetAPI.Controllers
 
             var Acc = _complexContext.UserAccount.FirstOrDefault(ua => ua.UA_Id == UAID);
 
-            
+            var tempProducer = _complexContext.Producers.FirstOrDefault(p => p.P_UAID == UAID);
 
             if (Acc == null) { return NotFound(); }
+
+            if(tempProducer == null) { 
 
             var Producers = new Producers();
             Producers = producers;
@@ -38,9 +40,19 @@ namespace TarGetAPI.Controllers
          
 
             _complexContext.Producers.Add(Producers);
+
+                _complexContext.SaveChanges(true);
+                return Ok("new entry created");
+            }
+
+            producers.P_Id = tempProducer.P_Id;
+            producers.P_UAID = Acc.UA_Id;
+            _complexContext.Entry<Producers>(tempProducer).CurrentValues.SetValues(producers);
+
+          
+
+
             _complexContext.SaveChanges(true);
-
-
             return Ok();
 
 
