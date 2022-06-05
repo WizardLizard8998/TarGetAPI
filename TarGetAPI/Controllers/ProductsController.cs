@@ -36,6 +36,20 @@ namespace TarGetAPI.Controllers
 
         }
 
+
+       [HttpGet("Category/{CID}")]
+       public IEnumerable<Products> GetProductsBycID(int CID)
+        {
+            
+
+            
+
+            return _productsContext.Products.Where(p => p.C_Id == CID) ;
+
+        }
+
+
+
         [HttpPost]
         public IActionResult PostProducts([FromBody] Products products)
         {

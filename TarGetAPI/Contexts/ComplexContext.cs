@@ -11,7 +11,7 @@ namespace TarGetAPI.Contexts
 
         }
 
-        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Cart> Cart { get; set; }
         public DbSet<CartDetails> CartDetails { get; set; }
         public DbSet<Categories> Categories { get; set; }
         public DbSet<City> Cities { get; set; }

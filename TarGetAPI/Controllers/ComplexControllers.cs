@@ -138,6 +138,31 @@ namespace TarGetAPI.Controllers
         }
 
 
+        [HttpGet("/ComplexCart/{UAID}")]
+        public IActionResult Cart(int UAID)
+        {
+            var customer = _complexContext.Customers.First( c => c.C_UAID == UAID );
+
+            var tempCart = _complexContext.Cart.OrderBy(c=> c.Ct_Id).LastOrDefault( c => c.Cust_Id == customer.C_Id &&  c.Ct_Paid == 0);
+
+            if(tempCart == null) { 
+                
+                Cart cart = new Cart();
+
+                cart.Cust_Id = customer.C_Id;
+                cart.Ct_Paid = 0;
+                cart.Ct_note = "";
+
+                _complexContext.Cart.Add(cart);
+                _complexContext.SaveChanges(true);
+                return Ok(cart);
+            
+            }
+
+            return Ok(tempCart);
+        }
+
+
 
     }
 }
