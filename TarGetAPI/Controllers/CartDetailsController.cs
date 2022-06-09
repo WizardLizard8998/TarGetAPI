@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TarGetAPI.Contexts;
 using TarGetAPI.Models;
-
+using System;
 
 namespace TarGetAPI.Controllers
 {
@@ -37,12 +37,25 @@ namespace TarGetAPI.Controllers
         }
 
 
+        [HttpGet("cart/{ctID}")]
+        public IActionResult GetCartDetailsByCartId(int ctID)
+        {
+
+            var tempCartDetail = _cartdetailsContext.CartDetails.Where(cd => cd.Ct_Id == ctID);
+
+            if (tempCartDetail == null) { return NotFound(); }
+
+            return Ok(tempCartDetail);
+
+        }
+
 
         [HttpPost]
         public IActionResult PostCartDetails([FromBody] CartDetails cartDetails)
         {
             if (cartDetails == null) { return BadRequest(); }
 
+            cartDetails.CD_date = DateTime.Now.Date;
             _cartdetailsContext.CartDetails.Add(cartDetails);
             _cartdetailsContext.SaveChanges();
             return Ok();

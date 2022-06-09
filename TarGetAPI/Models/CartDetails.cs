@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
 
 namespace TarGetAPI.Models
 {
@@ -11,8 +12,8 @@ namespace TarGetAPI.Models
 
         public int Pt_ID{ get; set; }
         public int Ct_Id{ get; set; }
-        public float CD_Quantity{ get; set; }
-        public float CD_TotalPrice{ get; set; }
-        public string CD_date{ get; set; }
+        public double CD_Quantity{ get; set; }
+        public double CD_TotalPrice{ get; set; }
+        public DateTime CD_date{ get; set; }
     }
 }

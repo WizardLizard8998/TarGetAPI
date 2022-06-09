@@ -41,8 +41,19 @@ namespace TarGetAPI.Controllers
 
         }
 
+        [HttpGet("UAID/{UAID}")]
+        public IActionResult GetCustomerByUAID(int UAID)
+        {
+            var tempCustomer = _customerContext.Customers.FirstOrDefault(c => c.C_UAID == UAID);
 
-    
+            if (tempCustomer == null) { return NotFound(); }
+
+
+            return Ok(tempCustomer);
+
+        }
+
+
 
         [HttpPost]
 
