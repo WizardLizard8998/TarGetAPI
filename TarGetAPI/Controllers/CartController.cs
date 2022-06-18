@@ -58,6 +58,11 @@ namespace TarGetAPI.Controllers
         {
             var tempCart = _cartContext.Cart.FirstOrDefault(c => c.Ct_Id == Id);
 
+            cart.Ct_Id = tempCart.Ct_Id;
+            cart.Cust_Id = tempCart.Cust_Id;
+            cart.Ct_note = tempCart.Ct_note;
+
+
             if (tempCart == null)
             {
                 return NotFound(cart.Ct_Id);

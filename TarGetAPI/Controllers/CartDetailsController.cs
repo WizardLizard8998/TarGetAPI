@@ -82,9 +82,9 @@ namespace TarGetAPI.Controllers
 
         [HttpDelete("{Id}")]
 
-        public IActionResult DeleteCartDeatails(int id)
+        public IActionResult DeleteCartDeatails(int Id)
         {
-            var tempCartDetails = _cartdetailsContext.CartDetails.FirstOrDefault(cd =>cd.CD_Id == id);
+            var tempCartDetails = _cartdetailsContext.CartDetails.FirstOrDefault(cd =>cd.CD_Id == Id);
 
             if(tempCartDetails == null) { return NotFound(); }
 
